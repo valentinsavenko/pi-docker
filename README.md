@@ -18,19 +18,22 @@ docker build -t pi-agent:root .
 # ------------------------------
 
 # kills the container each time. all tools etc must be re-downloaded
-alias pi='docker run -it -rm \
+alias pi-once='docker run -it --rm \
   -v "$(pwd):/workspace" \
   -v "${HOME}/.pi:/root/.pi" \
   -e OPENROUTER_API_KEY="${OPENROUTER_API_KEY}" \
-  --name pi-agent \
+  --name pi-agent-oneshot \
   pi-agent:root'
 
-# attaches/ starts / creates same container 
-alias pipi=${HOME}/workspace/pi-docker/pi-agent.sh 
+# builds, attaches/starts/creates same container 
+alias pi-c=${HOME}/workspace/pi-docker/pi-agent.sh 
+
+# in container run
+pi
 ```
 
 Optionally copy settings over:
 ```bash 
-cp -r agent/* ${HOME}/.pi/agent
+cp -r ./pi/* ${HOME}/.pi
 
 ```

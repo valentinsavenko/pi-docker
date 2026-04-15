@@ -1,0 +1,9 @@
+# Quick plan → code cycle (your requested workflow)
+plan-and-code:
+  - planner
+  - coder
+
+# Optional: full team if you want to expand later
+full:
+  - planner
+  - coder
